@@ -27,4 +27,16 @@ print("_____________")
 df = pd.get_dummies(df, columns=['deck'], drop_first=True)
 print(df)
 
+df = pd.get_dummies(df, columns=['sex', 'embarked'], drop_first=True)
+
+target_column = 'survived'  
+
+X = df.drop(columns=[target_column]) 
+
+y = df[target_column]
+
+print("_____________")
+print(X.head())
+print(y.head())
+
 df.to_csv('cleaned_data.csv', index=False)
